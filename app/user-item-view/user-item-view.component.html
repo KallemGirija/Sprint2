@@ -1,0 +1,43 @@
+<div style="width: 100%;height: 10%;">
+    <div class="border border-danger" style="background-color:rgb(252, 225, 89);width: 10%;float: left;">
+<h5>CartList</h5>
+        <br>
+<p style="font-family: cursive">{{listCount}} is add to cart</p>
+</div>
+<div class="border border-danger" style="width: 10%;float: right;background-color: rgb(187, 152, 220);">
+Price:{{cost}}₹
+<br>
+gst:{{gst}}₹
+<br>
+total Amount:{{total}}₹
+<br>
+<button class="btn btn-primary" #item2 (click)="proceedToPay()"> Proceed to Pay
+</button>
+</div>
+</div>
+<br>
+<div>
+<button class="btn btn-primary" (click)=" viewAllItems()">All Items</button>
+<div *ngFor="let i of items" style="background-color:rgb(252, 133, 89);" class="border border-dark">
+    <table>
+        <tr>
+            <td> <img src="/assets/images/{{i.imageName}}" alt=" Item image" width="90px" height="90px" class="rounded">
+            </td>
+            <td>
+                <h2>{{i.itemName}} </h2>
+                <hr />
+                <p> {{i.category}} </p>
+                <br>
+                <h4>{{i.cost}}₹</h4>
+            </td>
+        </tr>
+        <button value="{{i.itemName}}" class="btn btn-primary" (click)="addToCart(item.value)" #item> Added to Cart
+        </button>
+        <button value="{{i.cost}}" class="btn btn-primary" (click)="payment(item2.value)" #item2> Order
+        </button>
+        <hr>
+    </table>
+</div>
+</div>
+<br>
+

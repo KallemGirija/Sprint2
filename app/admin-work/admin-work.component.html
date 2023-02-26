@@ -1,0 +1,106 @@
+<div style="width: 50%;background-color: rgb(246, 125, 82);">
+    <form style="width: 50%;margin-left: 25%;" (ngSubmit)=" onSubmit() " class="form-horizontal" #myForm="ngForm" >     
+        <div class="mb-3">
+            <label class="form-label">Restaurant Name</label>
+            <input type="text" class="form-control" [(ngModel)]="r.restaurantName" id="resName" name="resName"
+                #resName="ngModel" required pattern="[0-9]*[a-zA-Z_]+[0-9]*">
+            <div *ngIf="resName.invalid">
+                <span style="color: red;" *ngIf="resName.errors?.['required']">
+
+                    Restaurant Name is required Field
+                </span>
+                <span style="color: red;" *ngIf="resName.errors?.['pattern']">
+                    Restaurant Name is not valid
+                </span>
+            </div>
+            <span style="color: rgb(4, 205, 51);" *ngIf="resName.valid">
+                Restaurant Name is valid
+            </span>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">Restaurant Owner</label>
+            <input type="text" class="form-control" [(ngModel)]="r.managerName" id="managerName" name="managerName">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Contact Number</label>
+            <input type="text" class="form-control" [(ngModel)]="r.contactNumber" id="contnumber" name="contnumber"
+                pattern="^((\\+91-?)|0)?[0-9]{10}$" #resNum="ngModel" required>
+            <div *ngIf="resNum.invalid">
+                <span style="color: red;" *ngIf="resNum.errors?.['required']">
+
+                    Contact Number is required Field
+                </span>
+                <span style="color: red;" *ngIf="resNum.errors?.['pattern']">
+                    Contact Number is not valid
+                </span>
+            </div>
+            <span style="color: rgb(4, 205, 51);" *ngIf="resNum.valid">
+                Contact Number is valid
+            </span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Building Name</label>
+            <input type="text" class="form-control" [(ngModel)]="r.buildingName" id="buildingName" name="buildingName">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Area</label>
+            <input type="text" class="form-control" id="area" [(ngModel)]="r.area" name="area">
+        </div>
+        <div class="mb-3">
+            <label class="form-label"> Street No</label>
+            <input type="text" class="form-control" [(ngModel)]="r.streetNo" id="streetNo" name="streetNo">
+        </div>
+        <div class="form-group">
+            <div class="col-auto my-1">
+                <label class="mr-sm-2" for="inlineFormCustomerSelect">State</label>
+                <select class="custom-select mr-sm-2" [(ngModel)]="r.state" id="state" name="state" #state="ngModel"
+                    required>
+                    <option value=" " disabled selected>Select</option>
+                    <option value="Telangana"> Telangana </option>
+                    <option value="Maharastra"> Maharastra </option>
+                    <option value="Karnataka"> Karnataka </option>
+                    <option value="Tamil Nadu"> Tamil Nadu </option>
+                </select>
+                <div *ngIf="state.invalid">
+                    <span style="color: red;" *ngIf="state.errors?.['required']">
+                        state is required Field
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-auto my-1">
+                <label class="mr-sm-2" for="inlineFormCustomerSelect">City</label>
+                <select class="custom-select mr-sm-2" [(ngModel)]="r.city" id="city" name="city" #city="ngModel"
+                    required>
+                    <option value=" " disabled selected>Select</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Bengalore">Bengalore</option>
+                    <option value="Chennai ">Chennai </option>
+                </select>
+                <div *ngIf="city.invalid">
+                    <span style="color: red;" *ngIf="city.errors?.['required']">
+                        City is required Field
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">country</label>
+            <input type="text" class="form-control" [(ngModel)]="r.country" id="country" name="country">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">pincode</label>
+            <input type="text" class="form-control" [(ngModel)]="r.pincode" id="pincode" name="pincode">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Image Name</label>
+            <input type="text" class="form-control" [(ngModel)]="r.imageName" id="image" name="image">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<br>
+<app-admin-view></app-admin-view>

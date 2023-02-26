@@ -1,0 +1,17 @@
+<button class="btn btn-primary"  (click)="viewAllRestuarantsByName(id.value)" #id>all Reviews</button>
+<div *ngFor="let r of review" style="background-color:rgb(244, 166, 138);">
+<table>
+    <tr>
+        <td>
+            <p>{{r.customerName}}</p>
+            <h2>{{r.itemName}} </h2>
+            <hr />
+            <p> {{r.message}} </p>
+            <br>
+            <h4>Rating:{{r.starRating}}</h4>
+        </td>
+    </tr>
+    <hr>
+</table>
+</div>
+<br>

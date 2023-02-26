@@ -1,0 +1,42 @@
+<div style="width: 50%;background-color: rgb(239, 115, 70);">
+    <form style="width: 50%;margin-left: 25%;text-align: right;" (ngSubmit)=" onSubmitBill() " class="form-horizontal"
+        #myForm="ngForm">
+        <div class="mb-3"><br>
+            <label class="form-label">Restaurant Name</label><br>
+            <input type="" class="form-control" [(ngModel)]="b.restaurantName" id="restaurantName"
+                name="restaurantName" #restaurantName="ngModel" required pattern="[0-9]*[a-zA-Z_]+[0-9]*">
+            <div *ngIf="restaurantName.invalid">
+                <span style="color: red;" *ngIf="restaurantName.errors?.['required']">
+                    Restaurant Name is required Field
+                </span>
+                <span style="color: red;" *ngIf="restaurantName.errors?.['pattern']">
+                    Restaurant Name is not valid
+                </span>
+            </div>
+            <span style="color: rgb(4, 205, 51);" *ngIf="restaurantName.valid">
+                Restaurant Name is valid
+            </span>
+        </div>
+        <div class="mb-3"><br>
+            <label class="form-label">Item Count</label><br>
+            <input type="" class="form-control" [(ngModel)]="b.itemCount" id="itemCount" name="itemCount"
+               #itemCount="ngModel" required pattern="[0-9]">
+            <div *ngIf="itemCount.invalid">
+                <span style="color: red;" *ngIf="itemCount.errors?.['required']">
+                    Item Count is required Field
+                </span>
+                <span style="color: red;" *ngIf="itemCount.errors?.['pattern']">
+                    Item Count is not valid
+                </span>
+            </div>
+                <span style="color: rgb(4, 205, 51);" *ngIf="itemCount.valid">
+                    Item Count is valid
+                </span>
+        </div>
+        <div class="mb-3"><br>
+            <label class="form-label">Gross Bill Amount</label><br>
+            <input type="" class="form-control" [(ngModel)]="b.grossBillAmount" id="grossBillAmount" name="grossBillAmount">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit </button>
+    </form>
+</div>

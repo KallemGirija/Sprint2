@@ -1,0 +1,82 @@
+<div>
+    <table>
+        <tr>
+            <td>
+                Restaurant By
+                state
+                <select #state (change)="viewAllRestuarantsByState(state.value)">
+                    <option value="" disabled selected>Select</option>
+                    <option> Telangana </option>
+                    <option>Maharastra</option>
+                    <option>Karnataka</option>
+                    <option>Tamil Nadu</option>
+                </select>
+            </td>
+            <td>
+                Restaurant By
+                city
+                <select #city (change)="viewAllRestuarantsByCity(city.value)">
+                    <option value="" disabled selected>Select</option>
+                    <option> Hyderabad </option>
+                    <option>Mumbai</option>
+                    <option>Bengalore</option>
+                    <option>Chennai</option>
+                </select>
+            </td>
+            <td>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Restaurant Name</label>
+                    <input type="text" class="form-control" id="restaurantName" placeholder="Enter" #name
+                        style="width: 80%;">
+                </div>
+                <button type="submit" class="btn btn-primary"
+                    (click)="viewAllRestuarantsByName(name.value)">Submit</button>
+            </td>
+            <td>
+                <button class="btn btn-primary" (click)="viewAllRestaurants()">All Restuarants</button>
+            </td>
+        </tr>
+    </table>
+    <div *ngFor="let r1 of restaurants" style="background-color:rgb(244, 166, 138);width: 100%;">
+        <table>
+            <tr><img src="/assets/images/{{r1.imageName}}" alt=" Restaurant image" width="150px" height="150px">
+                <td>
+                </td>
+                <td>
+                    <h2>{{r1.restaurantName}} </h2>
+                    <hr />
+                    <p> {{r1.contactNumber}} </p>
+                    <p>{{r1.city}}</p>
+                    <p>{{r1.state}}</p>
+                    <p *ngFor="let i of allItems">{{i.itemName}}</p>
+                    <br>
+                    <button (click)="addReview()" class="btn btn-primary" >Add Review</button>
+                    <button (click)="viewItems()" class="btn btn-primary">view Item</button>
+                </td>
+            </tr>
+            <hr>
+        </table>
+        <br>  
+        <br>
+    </div>
+        <div *ngFor="let r of allRestaurants" style="background-color:rgb(244, 166, 138);width: 100%;">
+            <table>
+                <tr><img src="/assets/images/{{r.imageName}}" alt=" Restaurant image" width="150px" height="150px">
+                    <td>
+                    </td>
+                    <td>
+                        <h2>{{r.restaurantName}} </h2>
+                        <hr />
+                        <p> {{r.restaurantContactNumber}} </p>
+                        <p>{{r.city}}</p>
+                        <p>{{r.state}}</p>
+                        <br>
+                        <button (click)="addReview()" class="btn btn-primary">Add Review</button>
+                        <button (click)="viewItems()" class="btn btn-primary">view Item</button>
+                        <button value="{{r.restaurantId}}"  (click)="viewReview()" class="btn btn-primary">view Reviews</button>
+                    </td>
+                </tr>
+                <hr>
+            </table>
+        </div>
+        <hr />
